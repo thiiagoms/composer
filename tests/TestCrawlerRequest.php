@@ -8,7 +8,7 @@ use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use Src\Requests\CrawlerRequest;
 use Symfony\Component\DomCrawler\Crawler;
 
-class TestCrawlerRequest extends TestCase
+final class TestCrawlerRequest extends TestCase
 {
     /**
      * @var ClientInterface|MockObject
