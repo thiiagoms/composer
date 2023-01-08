@@ -15,33 +15,47 @@ Little crawler on **Alura** :blue_heart: to get all PHP courses, but the focus i
  - PHP +7.4
  - Composer
 
-### Run
-- Clone the repository:
-
+### Install :zap:
+01 - Clone the repository:
 ```bash
 $ git clone https://github.com/thiiagoms/composer
 ```
-- Switch directory
 
+02 - Switch directory
 ```bash
 $ cd composer
 ```
 
-- Install dependencies with composer:
+03 - Install dependencies with composer:
 ```bash
 $ composer install
 ```
 
-- Run:
+### Run 
+04 - Run:
 ```bash
-$ php crawler.php
+$ ./crawler
+
+ /$$$$$$
+ /$$__  $$
+| $$  \__/  /$$$$$$  /$$$$$$/$$$$   /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$
+| $$       /$$__  $$| $$_  $$_  $$ /$$__  $$ /$$__  $$ /$$_____/ /$$__  $$ /$$__  $$
+| $$      | $$  \ $$| $$ \ $$ \ $$| $$  \ $$| $$  \ $$|  $$$$$$ | $$$$$$$$| $$  \__/
+| $$    $$| $$  | $$| $$ | $$ | $$| $$  | $$| $$  | $$ \____  $$| $$_____/| $$
+|  $$$$$$/|  $$$$$$/| $$ | $$ | $$| $$$$$$$/|  $$$$$$/ /$$$$$$$/|  $$$$$$$| $$
+\______/  \______/ |__/ |__/ |__/| $$____/  \______/ |_______/  \_______/|__/
+                                | $$
+                                | $$
+                                |__/
+    [*] Author: Thiago Silva AKA thiiagoms
+    [*] Description: Alura scrap
 ```
 
-### Composer
+### Composer :package:
 
 - Add `composer check` command to run tests with `phpunit` and validate code style with `phpcs` and `phan`, you can check it on `composer list` description.
 
-- If you want to run the command:
+-05 If you want to run the command:
 ```bash
 $ composer check
 ```
