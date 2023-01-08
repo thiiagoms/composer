@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Src\Requests;
 
 use GuzzleHttp\ClientInterface;
@@ -13,20 +15,10 @@ use Symfony\Component\DomCrawler\Crawler;
 class CrawlerRequest
 {
     /**
-     * @var ClientInterface
-     */
-    private ClientInterface $httpClient;
-
-    /**
-     * @var Crawler
-     */
-    private Crawler $crawler;
-
-    /**
      * @param ClientInterface $httpClient
      * @param Crawler         $crawler
      */
-    public function __construct(ClientInterface $httpClient, Crawler $crawler)
+    public function __construct(private ClientInterface $httpClient, private Crawler $crawler)
     {
         $this->httpClient = $httpClient;
         $this->crawler = $crawler;
@@ -41,7 +33,7 @@ class CrawlerRequest
         $response = $this->httpClient->request('GET', $url);
         $html = $response->getBody();
 
-        $this->crawler->addHtmlContent($html);
+        $this->crawler->addHtmlContent((string) $html);
         $coursesElement = $this->crawler->filter('span.card-curso__nome');
         $courses = [];
 

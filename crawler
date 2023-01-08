@@ -1,0 +1,42 @@
+#!/usr/bin/env php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    echo "[*] Execute only in CLI Mode";
+    exit;
+}
+
+use Src\App;
+use GuzzleHttp\Exception\GuzzleException;
+use PrettyPrint\Printer;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+Printer::success(
+'
+ /$$$$$$                                                                           
+ /$$__  $$                                                                          
+| $$  \__/  /$$$$$$  /$$$$$$/$$$$   /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$   /$$$$$$ 
+| $$       /$$__  $$| $$_  $$_  $$ /$$__  $$ /$$__  $$ /$$_____/ /$$__  $$ /$$__  $$
+| $$      | $$  \ $$| $$ \ $$ \ $$| $$  \ $$| $$  \ $$|  $$$$$$ | $$$$$$$$| $$  \__/
+| $$    $$| $$  | $$| $$ | $$ | $$| $$  | $$| $$  | $$ \____  $$| $$_____/| $$      
+|  $$$$$$/|  $$$$$$/| $$ | $$ | $$| $$$$$$$/|  $$$$$$/ /$$$$$$$/|  $$$$$$$| $$      
+\______/  \______/ |__/ |__/ |__/| $$____/  \______/ |_______/  \_______/|__/      
+                                | $$                                              
+                                | $$                                              
+                                |__/
+
+    [*] Author: Thiago Silva AKA thiiagoms
+    [*] Description: Alura scrap
+');
+
+$app = new App('https://alura.com.br');
+
+try {
+    $courses = $app->getCourses('/cursos-online-programacao/php');
+    foreach ($courses as $course) {
+        Printer::info($course);
+    }
+} catch (GuzzleException $e) {
+    echo "Message: {$e->getMessage()}";
+}
